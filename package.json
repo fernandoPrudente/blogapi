@@ -11,6 +11,7 @@
     "build": "babel src --out-dir dist",
     "build:watch": "npm run build -- -w",
     "pretest": "npm run build",
+    "test:ci": "mocha dist/**/**.test.js",
     "test": "npm-run-all --parallel build:watch test:watch -r",
     "test:watch": "mocha dist/**/**.test.js -w",
     "prestart": "npm run npm-pkg-check",
