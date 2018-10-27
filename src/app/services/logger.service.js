@@ -3,7 +3,7 @@ import * as winston from 'winston';
 export  class Logger{
 
     static constructor(){
-        config();
+        Logger.config();
     }
 
     static warn(message) {  
