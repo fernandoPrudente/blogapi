@@ -1,9 +1,6 @@
 FROM node 
 
-RUN ls
-
-# COPY ./dist ./dist 
-COPY ./package.json .
+COPY . .
 
 RUN npm install --production
 

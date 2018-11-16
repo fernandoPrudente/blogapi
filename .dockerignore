@@ -1,0 +1,11 @@
+node_modules/**/*
+src/**/*
+.babelrc
+.dockerignore
+.eslintrc
+.gitignore
+.travis.yml
+deploy.sh
+Dockerfile
+teste.js
+buildScripts/**/*
