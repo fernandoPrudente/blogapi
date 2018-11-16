@@ -11,6 +11,8 @@ script:
   - npm run lint
   - npm run test:ci
 before_deploy:
+  - echo "listando arquivos e diretórios:"
+  - ls  
   - chmod u+x ./deploy.sh
 deploy:
   provider: script
