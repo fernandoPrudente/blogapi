@@ -10,11 +10,11 @@ export const messages = {
     PostCanNotBeNul: 'Post não pode ser nulo'
 }
 
-export const throwUserError = (name) => {
-    const message = messages[name];
+export const throwUserError = (key) => {
+    const message = messages[key];
     
     if(message !== undefined)
-        throw new UserError(name, message);
+        throw new UserError(key, message);
     
-    throw new Error(name)
+    throw new Error(key)
 }
