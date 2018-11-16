@@ -11,16 +11,15 @@ script:
   - npm run lint
   - npm run test:ci
 before_deploy:
-  - echo "listando arquivos e diretórios:"
-  - ls  
-  - chmod u+x ./deploy.sh
+  - chmod u+x ./deploy/deploy.sh
+  - chmod u+x ./deploy/deploytest.sh
 deploy:
   skip_cleanup: true
   provider: script
-  script: bash deploy.sh
+  script: bash ./deploy/deploy.sh
   on: 
     branch: master
 after_deploy: 
-  - ls
-  - echo "exibindo log do deploy:"
-  - cat deploy_log.txt
+  - ./deploy/deploytest.sh ||  (echo "Erro. exibindo log do deploy:" && cat ./deploy_log.txt && travis_terminate 1);
+  - echo "Sucesso. exibindo log do deploy:"
+  - cat ./deploy_log.txt

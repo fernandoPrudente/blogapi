@@ -12,5 +12,10 @@ docker build -t fpmatos/blogapi .
 
 docker push fpmatos/blogapi
 
-echo "deploy concluído" >> deploy_log.txt
-echo " "  >> deploy_log.txt
+if [ ! $? -eq 0 ]; then
+  echo "erro ao fazer deploy" >> deploy_log.txt
+  exit 1
+else 
+  echo "deploy concluído" >> deploy_log.txt
+  exit 0
+fi;
