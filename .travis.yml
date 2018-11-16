@@ -20,5 +20,6 @@ deploy:
   on: 
     branch: master
 after_deploy: 
+  - ls
   - echo "exibindo log do deploy:"
   - cat deploy_log.txt
