@@ -4,10 +4,19 @@ node_js:
 cache:
   directories:
     - "node_modules"
-# services:
-#   - postgresql
 before_script:
   - npm run build
 script:
+  - npm run npm-pkg-check
   - npm run lint
   - npm run test:ci
+before_deploy:
+  - chmod u+x ./deploy.sh
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on: 
+    branch: release
+after_deploy: 
+  - echo "exibindo log do deploy:"
+  - cat deploy_log.txt
